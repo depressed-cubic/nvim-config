@@ -11,7 +11,10 @@
 	"prefix": "mk",
 	"body": [
 	    "\\($1\\)"
-	]
+	],
+	"luasnip": {
+	    "autotrigger": true
+	}
     },
     "Problem environment": {
 	"prefix": "pb",

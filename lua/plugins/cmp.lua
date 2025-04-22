@@ -12,7 +12,7 @@ return {
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
 
-  dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp'},
+  dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp', opts = { enable_autosnippets = true }},
 
   event = "InsertEnter",
 
