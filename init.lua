@@ -10,6 +10,8 @@ require("config.lazy")
 require("config.keymaps")
 
 require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/snippets" })
-require("mini.sessions").setup()
+
+require("lualine").setup()
+-- require("mini.sessions").setup()
 
 vim.cmd.colorscheme "catppuccin"
