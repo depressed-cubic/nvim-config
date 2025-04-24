@@ -12,7 +12,7 @@ return {
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
 
-  dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp', opts = { enable_autosnippets = true }},
+  dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp', lazy = true , opts = { enable_autosnippets = true }},
 
   event = "InsertEnter",
 
@@ -51,7 +51,7 @@ return {
         buffer = {
           module = 'blink.cmp.sources.buffer',
           score_offset = -3,
-          min_keyword_length = 2,
+          min_keyword_length = 4,
           opts = {
             -- default to all visible buffers
             get_bufnrs = function()
