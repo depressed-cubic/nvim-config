@@ -12,13 +12,13 @@ return {
          ['callback'] = 1,
          ['continuous'] = 1,
          ['executable'] = 'latexmk',
-         ['hooks'] = {}, 
+         ['hooks'] = {},
          ['options'] = {
            '-verbose',
            '-file-line-error',
            '-synctex=1',
            '-interaction=nonstopmode',
-	}
+	},
     }
   end
 }

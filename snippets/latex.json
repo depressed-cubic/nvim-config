@@ -3,14 +3,14 @@
 	"prefix": "al",
 	"body": [
 	    "\\begin{align*}",
-	    "\t$1",
-	    "\\end{align*}$0"
+	    "\t$0",
+	    "\\end{align*}"
 	]
     },
     "Inline math": {
 	"prefix": "mk",
 	"body": [
-	    "\\($1\\)"
+	    "\\($1\\)$0"
 	],
 	"luasnip": {
 	    "autotrigger": true
@@ -20,24 +20,24 @@
 	"prefix": "pb",
 	"body": [
 	    "\\begin{problem}",
-	    "\t$1",
-	    "\\end{problem}$0"
+	    "\t$0",
+	    "\\end{problem}"
 	]
     },
     "Solution environment": {
 	"prefix": "sl",
 	"body": [
 	    "\\begin{solution}",
-	    "\t$1",
-	    "\\end{solution}$0"
+	    "\t$0",
+	    "\\end{solution}"
 	]
     },
     "Subproblem environment": {
 	"prefix": "spb",
 	"body": [
 	    "\\begin{subproblem}",
-	    "\t$1",
-	    "\\end{subproblem}$0"
+	    "\t$0",
+	    "\\end{subproblem}"
 	]
     },
     "General environment": {
