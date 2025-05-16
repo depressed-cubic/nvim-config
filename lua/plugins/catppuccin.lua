@@ -42,6 +42,9 @@ return { "catppuccin/nvim",
       which_key = true,
     },
   },
+  init = function ()
+    vim.cmd.colorscheme "catppuccin"
+  end,
   specs = {
     {
       "akinsho/bufferline.nvim",

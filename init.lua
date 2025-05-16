@@ -14,4 +14,3 @@ require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/snipp
 require("lualine").setup()
 -- require("mini.sessions").setup()
 
-vim.cmd.colorscheme "catppuccin"
