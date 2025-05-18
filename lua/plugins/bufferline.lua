@@ -47,6 +47,7 @@ return {
       -- get_element_icon = function(opts)
       --   return LazyVim.config.icons.ft[opts.filetype]
       -- end,
+      separator_style = "slant",
     },
   },
   config = function(_, opts)
