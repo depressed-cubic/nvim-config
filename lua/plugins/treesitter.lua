@@ -1,8 +1,9 @@
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    -- main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     event = { "BufReadPost", "BufNewFile", "BufWritePre" , "VeryLazy" },
     -- markview require loading treesitter before itself
     -- dependencies = { "OXY2DEV/markview.nvim" },
