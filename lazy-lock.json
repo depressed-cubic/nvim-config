@@ -14,6 +14,7 @@
   "mini.nvim": { "branch": "main", "commit": "5a10dfb3ab49b3ee2425bc2c215b5067ccce1c79" },
   "noice.nvim": { "branch": "main", "commit": "0427460c2d7f673ad60eb02b35f5e9926cf67c59" },
   "nui.nvim": { "branch": "main", "commit": "7cd18e73cfbd70e1546931b7268b3eebaeff9391" },
+  "nvim-autopairs": { "branch": "master", "commit": "4d74e75913832866aa7de35e4202463ddf6efd1b" },
   "nvim-dap": { "branch": "master", "commit": "b0f983507e3702f073bfe1516846e58b56d4e42f" },
   "nvim-lspconfig": { "branch": "master", "commit": "8adb3b5938f6074a1bcc36d3c3916f497d2e8ec4" },
   "nvim-metals": { "branch": "main", "commit": "d1639b7fccd845875e33444c7860ad292ab8670d" },
