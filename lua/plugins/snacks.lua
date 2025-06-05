@@ -94,7 +94,7 @@ return {
     --  the definition of its *type*, not where it was *defined*.
     { "grt", function() Snacks.picker.lsp_type_definitions() end, desc = "[G]oto [T]ype Definition" },
 
-    { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
-    { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+    { "grs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+    { "grS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
   },
 }
