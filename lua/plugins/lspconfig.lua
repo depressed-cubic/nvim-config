@@ -30,7 +30,7 @@ return {
       -- Allows extra capabilities provided by nvim-cmp
       'saghen/blink.cmp',
     },
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+    -- event = { "BufReadPost", "BufNewFile", "BufWritePre", "BufWritePost"},
     config = function(_, opts)
       -- Brief aside: **What is LSP?**
       --
