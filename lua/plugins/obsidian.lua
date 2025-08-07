@@ -18,7 +18,7 @@ return {
     -- see above for full list of optional dependencies ☝️
     'saghen/blink.cmp',
     "folke/snacks.nvim",
-    -- "OXY2DEV/markview.nvim",
+    "OXY2DEV/markview.nvim",
   },
   ---@module 'obsidian'
   ---@type obsidian.config.ClientOpts
