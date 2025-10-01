@@ -10,7 +10,7 @@
     "Inline math": {
 	"prefix": "mk",
 	"body": [
-	    "\\($1\\)$0"
+	    "\\($0\\)"
 	],
 	"luasnip": {
 	    "autotrigger": true
@@ -41,7 +41,7 @@
 	]
     },
     "General environment": {
-	"prefix": "\\beg",
+	"prefix": "\\begin",
 	"body": [
 	    "\\begin{$1}",
 	    "    $0",
