@@ -20,6 +20,7 @@ return
     opts = {
         preview = {
             icon_provider = "devicons", -- "mini" or "devicons"
-        }
+        },
+        typst = { enable = false, },
     }
 };
