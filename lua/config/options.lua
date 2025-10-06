@@ -45,4 +45,15 @@ vim.opt.showmode = false
 vim.opt.foldmethod = "indent"
 vim.cmd[[ set nofoldenable ]]
 
+local os_name = vim.loop.os_uname().sysname
+if os_name == "Windows_NT" then
+  -- OS is Windows
+  vim.cmd[[
+    let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
+    let &shellcmdflag = '-NoLogo -NonInteractive -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';$PSStyle.OutputRendering=''plaintext'';Remove-Alias -Force -ErrorAction SilentlyContinue tee;'
+    let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+    let &shellpipe  = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
+    set shellquote= shellxquote=
+  ]]
+end
 -- vim: ts=2 sts=2 sw=2 et
