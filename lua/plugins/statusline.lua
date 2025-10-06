@@ -37,6 +37,7 @@ return {
                 timeout = 500,
               }
             },
+            lualine_x = {'encoding', 'fileformat', 'filetype', 'lsp_status'},
         }
     }
 }
