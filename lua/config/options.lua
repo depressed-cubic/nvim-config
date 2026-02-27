@@ -56,4 +56,8 @@ if os_name == "Windows_NT" then
     set shellquote= shellxquote=
   ]]
 end
+
+vim.filetype.add({
+  pattern = { [".*%.amy"] = "amy" }
+})
 -- vim: ts=2 sts=2 sw=2 et
