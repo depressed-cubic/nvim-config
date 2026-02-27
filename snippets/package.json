@@ -8,7 +8,13 @@
 					,"tex"
 				],
 				"path": "./latex.json"
-			}
+			},
+                        {
+                                "language": [
+                                    "typst"
+                                ],
+                                "path": "./typst.json"
+                        }
 		]
 	}
 }

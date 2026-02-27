@@ -1,0 +1,27 @@
+{
+    "Inline math": {
+	"prefix": "mk",
+	"body": [
+	    "\\$$1\\$$0"
+	],
+	"luasnip": {
+	    "autotrigger": true
+	}
+    },
+    "Problem": {
+	"prefix": "pb",
+	"body": [
+	    "#prob()[",
+            "   $0",
+            "]"
+	]
+    },
+    "Subproblem": {
+	"prefix": "spb",
+	"body": [
+	    "#prob(level: 2)[",
+            "   $0",
+            "]"
+	]
+    }
+}
