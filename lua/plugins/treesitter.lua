@@ -1,16 +1,16 @@
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
-    -- branch = 'main',
+    branch = 'main',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    main = 'nvim-treesitter.config', -- Sets main module to use for opts
     event = { "BufReadPost", "BufNewFile", "BufWritePre" , "VeryLazy" },
     -- markview require loading treesitter before itself
     lazy = false,
     dependencies = { "OXY2DEV/markview.nvim" },
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'latex', 'javascript'},
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'latex', 'javascript', 'typst'},
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
