@@ -43,15 +43,15 @@ return { "catppuccin/nvim",
     },
   },
   init = function ()
-    vim.cmd.colorscheme "catppuccin"
+    vim.cmd.colorscheme "catppuccin-nvim"
   end,
   specs = {
     {
       "akinsho/bufferline.nvim",
       optional = true,
       opts = function(_, opts)
-        if (vim.g.colors_name or ""):find("catppuccin") then
-          opts.highlights = require("catppuccin.special.bufferline").get_theme()
+        if (vim.g.colors_name or ""):find("catppuccin-nvim") then
+          opts.highlights = require("catppuccin-nvim.special.bufferline").get_theme()
         end
       end,
     },

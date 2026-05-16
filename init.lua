@@ -54,16 +54,36 @@ vim.api.nvim_create_autocmd('FileType', {
                 typst_watch_counter = typst_watch_counter + 1
                 typst_watch_processes[vim.b.typst_watch_handle] = vim.loop.spawn("typst", { 
                     args = { "watch", vim.fn.expand("%:p"), "--root", "../../" } ,
-                }, function (a, b) print(a, b) end)
+                }, function (a, b) 
+                    -- print(a, b) 
+                end)
                 vim.b.watching = true
 
                 print("Starts watching this file")
                 print(vim.fn.expand("%:p"))
+
+                vim.cmd[[ TypstView ]]
             end
         end,
         {}
     )
+    vim.api.nvim_buf_create_user_command(
+        0,
+        "TypstView",
+        function ()
+            local cur_path = vim.fn.expand("%:p")
+            local len = string.len(cur_path)
+            local pdf_path = string.sub(cur_path, 1, len-4) .. ".pdf"
+            typst_watch_processes[vim.b.typst_watch_handle] = vim.loop.spawn("sioyek", { 
+                args = { "--new-window", pdf_path } ,
+            }, function (a, b) 
+                -- print(a, b) 
+            end)
+        end,
+        {}
+    )
     vim.keymap.set('n', '<localleader>ll', ':TypstToggleWatch<CR>', { desc = "toggle typst watch" })
+    vim.keymap.set('n', '<localleader>lv', ':TypstView<CR>', { desc = "open sioyek to view" })
   end,
 })
 

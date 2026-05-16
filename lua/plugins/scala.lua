@@ -41,6 +41,7 @@ return {
       	metals_config.settings = {
       	  showImplicitArguments = true,
       	  excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+          testUserInterface = "Test Explorer",
       	}
 
       	metals_config.init_options.statusBarProvider = "off"
@@ -50,40 +51,40 @@ return {
         metals_config.on_attach = function(client, bufnr)
 	    require("metals").setup_dap()
 
-	    vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run)
+	    vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, { desc = "LSP CodeLens run" })
             vim.keymap.set("n", "grf", vim.lsp.buf.format, { desc = "[F]ormat" } )
-            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
 	    vim.keymap.set("n", "<leader>ws", function()
               require("metals").hover_worksheet()
-            end)
+            end, { desc = "Metals hover worksheet" })
 
 	    vim.keymap.set("n", "<leader>dc", function()
               require("dap").continue()
-            end)
+            end, { desc = "DAP continue" })
 
             vim.keymap.set("n", "<leader>dr", function()
               require("dap").repl.toggle()
-            end)
+            end, { desc = "DAP REPL toggle" })
 
             vim.keymap.set("n", "<leader>dK", function()
               require("dap.ui.widgets").hover()
-            end)
+            end, { desc = "DAP hover" })
 
             vim.keymap.set("n", "<leader>dt", function()
               require("dap").toggle_breakpoint()
-            end)
+            end, { desc = "DAP toggle breakpoint" })
 
             vim.keymap.set("n", "<leader>dso", function()
               require("dap").step_over()
-            end)
+            end, { desc = "DAP step over" })
 
             vim.keymap.set("n", "<leader>dsi", function()
               require("dap").step_into()
-            end)
+            end, { desc = "DAP step into" })
 
             vim.keymap.set("n", "<leader>dl", function()
               require("dap").run_last()
-            end)
+            end, { desc = "DAP run last" })
 	end
 
 	return metals_config
