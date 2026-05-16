@@ -67,6 +67,10 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.diagnostic.config({
+    severity_sort = true
+})
+
 -- local typst_watch = vim.api.nvim_create_augroup("typst-watch", {  })
 --
 -- vim.api.nvim_create_autocmd('FileType', {

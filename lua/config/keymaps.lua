@@ -42,4 +42,5 @@ vim.keymap.set('n', '<leader>rf', function()
   ht.repl.toggle(vim.api.nvim_buf_get_name(0))
 end, opts)
 vim.keymap.set('n', '<leader>rq', ht.repl.quit, opts)
+vim.cmd[[noremap <F1> <nop>]]
 -- vim: ts=2 sts=2 sw=2 et
