@@ -29,8 +29,63 @@ end})
 vim.treesitter.language.register("scala", { 'amy' })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'typst', 'html', 'python', 'copilot-chat', 'scala', 'amy', 'javascript', 'rust', 'sql' },
+  pattern = { 'typst', 'html', 'copilot-chat', 'scala', 'amy', 'javascript', 'rust', 'sql' },
   callback = function() vim.treesitter.start() end,
+})
+
+-- Python: treesitter for highlights AND a custom indentexpr that:
+--   * uses treesitter indent as primary source (so brackets inside strings
+--     like `a = "67["` are correctly ignored — TS knows the parse tree)
+--   * falls back to text-based rules when TS returns -1 (e.g., on a blank
+--     line right after `def main():`, where the block node doesn't exist yet
+--     so the @indent.begin capture doesn't apply): handle colon-after-line
+--     indenting and basic dedent-after-stop-statements.
+_G._python_indent = function(lnum)
+  lnum = tonumber(lnum) or vim.v.lnum
+  if lnum <= 1 then return 0 end
+
+  -- Try treesitter indent first.
+  local ok, ts = pcall(vim.treesitter.indentexpr, lnum)
+  if ok and ts >= 0 then return ts end
+
+  -- Fallback for blank line / no applicable capture.
+  local pl = vim.fn.prevnonblank(lnum - 1)
+  if pl == 0 then return 0 end
+
+  local plindent = vim.fn.indent(pl)
+  local sw = vim.bo.shiftwidth
+
+  -- Strip trailing comment (naive: assumes # not inside a string on that line).
+  local text = vim.fn.getline(pl):gsub('%s*#.*$', '')
+
+  -- Previous line ended with `:` -> indent one level (def/if/for/while/with/etc)
+  if text:match(':%s*$') then
+    return plindent + sw
+  end
+
+  -- Stop-execution statement on its own -> dedent one (unless user already did)
+  if text:match('^%s*(break|continue|pass)%s*$')
+     or text:match('^%s*return%s*$')
+     or text:match('^%s*raise%s*$') then
+    if vim.fn.indent(lnum) <= plindent - sw then
+      return -1  -- trust the user's manual dedent
+    end
+    return plindent - sw
+  end
+
+  -- Default: keep previous line's indent.
+  return plindent
+end
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'python' },
+  callback = function()
+    vim.treesitter.start()
+    vim.bo.indentexpr = 'v:lua._python_indent(v:lnum)'
+    vim.bo.indentkeys = '0{,0},0),0],:,0#,!^F,o,O,e,=elif,=except'
+    vim.bo.smartindent = false
+    vim.bo.autoindent = true
+  end,
 })
 
 local typst_watch_processes = {}

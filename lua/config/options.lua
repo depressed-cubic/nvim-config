@@ -8,6 +8,7 @@ vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 
 vim.opt.breakindent = true
+vim.opt.smartindent = true
 
 vim.opt.undofile = true
 
