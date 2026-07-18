@@ -29,7 +29,7 @@ end})
 vim.treesitter.language.register("scala", { 'amy' })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'typst', 'html', 'python', 'copilot-chat', 'scala', 'amy', 'javascript'},
+  pattern = { 'typst', 'html', 'python', 'copilot-chat', 'scala', 'amy', 'javascript', 'rust', 'sql' },
   callback = function() vim.treesitter.start() end,
 })
 

@@ -16,7 +16,7 @@ return {
           end
         end,
       }):map("<leader>ut")
-      return { mode = "cursor", max_lines = 6 , trim_scope = "outer" }
+      return { mode = "cursor", max_lines = 9 , trim_scope = "outer" }
     end,
     dependencies = { 'nvim-treesitter/nvim-treesitter' }
 }

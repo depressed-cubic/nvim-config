@@ -43,6 +43,9 @@ vim.opt.conceallevel = 2
 vim.opt.showmode = false
 
 vim.opt.foldmethod = "indent"
+
+vim.g.sql_compl_ignore_dbext = 1
+
 vim.cmd[[ set nofoldenable ]]
 
 local os_name = vim.loop.os_uname().sysname
